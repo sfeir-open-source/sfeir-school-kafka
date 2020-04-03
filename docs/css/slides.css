@@ -1,0 +1,53 @@
+@charset "UTF-8";
+.reveal .slides section.center, .reveal .slides section .center {
+  text-align: center; }
+
+.reveal .slides section .big-text {
+  font-size: 3em; }
+
+.reveal .slides section.sfeir-basic-slide .center-big {
+  text-align: center;
+  font-size: 2.5em;
+  color: black; }
+
+.reveal .slides section.sfeir-basic-slide h1.center-big {
+  font-size: 3em; }
+
+.reveal .slides section.with-code pre.big-code:not(.literal), .reveal .slides section.with-code-dark pre.big-code:not(.literal) {
+  position: relative;
+  top: 0; }
+
+.reveal .slides section.quote > p {
+  text-align: center;
+  padding: 2.5em;
+  font-size: 2em; }
+
+.reveal .slides section .quotation {
+  padding: 0 1em; }
+  .reveal .slides section .quotation:before {
+    content: '«';
+    font-weight: bold;
+    font-size: 1.5em; }
+  .reveal .slides section .quotation:after {
+    content: '»';
+    font-weight: bold;
+    font-size: 1.5em; }
+
+.reveal .slides section .quotation-author {
+  text-align: right;
+  font-style: italic;
+  padding-right: 3em;
+  margin-top: 0;
+  font-size: 0.9em; }
+  .reveal .slides section .quotation-author:before {
+    content: '—'; }
+
+.reveal pre code {
+  max-height: 800px !important; }
+
+.reveal .slides section.exercice ul {
+  font-size: 1.4em !important; }
+  .reveal .slides section.exercice ul ul {
+    font-size: 1em !important; }
+
+/*# sourceMappingURL=slides.css.map */

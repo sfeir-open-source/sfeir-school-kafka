@@ -1,0 +1,76 @@
+.reveal .slides section {
+  &.center, .center {
+    text-align: center;
+  }
+
+  .big-text {
+    font-size: 3em;
+  }
+
+  &.sfeir-basic-slide {
+    .center-big {
+      text-align: center;
+      font-size: 2.5em;
+      color: black;
+    }
+    h1.center-big {
+      font-size: 3em;
+    }
+  }
+
+  &.with-code,
+  &.with-code-dark {
+    pre.big-code:not(.literal) {
+      position: relative;
+      top: 0;
+    }
+  }
+
+  &.quote > p {
+    text-align: center;
+    padding: 2.5em;
+    font-size: 2em;
+  }
+
+  & .quotation {
+    padding: 0 1em;
+
+    &:before {
+      content: '«';
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    &:after {
+      content: '»';
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+  }
+
+  & .quotation-author {
+    text-align: right;
+    font-style: italic;
+    padding-right: 3em;
+    margin-top: 0;
+    font-size: 0.9em;
+
+    &:before {
+      content: '—';
+    }
+  }
+}
+
+.reveal pre code {
+  max-height: 800px!important;
+}
+
+.reveal .slides section.exercice {
+  ul {
+    font-size: 1.4em!important;
+
+    ul {
+      font-size: 1em!important;
+    }
+  }
+}
