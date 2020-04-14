@@ -1,4 +1,4 @@
-# Python 200
+# Kafka 200
 
 A [SFEIR School](https://www.sfeir.com/formation/school/)
 
