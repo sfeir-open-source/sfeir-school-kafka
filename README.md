@@ -10,8 +10,9 @@ A [SFEIR School](https://www.sfeir.com/formation/school/)
 
 You can view the slides [here](https://sfeir-open-source.github.io/sfeir-school-kafka/).
 
-# Run project
-
-// TODO
-
 # Steps
+
+Each exercise has two directories:
+
+- a clean directory to get you started (ex: step-03)
+- a solution directory (ex: step-03-solution)
