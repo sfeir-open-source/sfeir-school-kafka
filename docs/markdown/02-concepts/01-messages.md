@@ -23,17 +23,17 @@
 # Messages
 
 ```
-// Record at offset 472 of topic customers
+// Record at offset 1 of topic customers
 ------- metadata -------
 topic: customers
 partition: 0
-offset: 472
+offset: 1
 timestamp: 1585906100000
 ------- headers --------
-X-Correlation-Id: dfnjg7oiNYk
+X-Correlation-Id: 04734ee1-db49-4a67-bc1f-fb42c1e1c2fb
 ------- record ---------
-key: john doe
-value: {"firstName":"john","lastName":"doe"}
+key: 1
+value: {"id": 1, "email": "john.doe@gmail.com", "gender": "MALE"}
 ```
 
 <!-- .element: class="big-code" -->
