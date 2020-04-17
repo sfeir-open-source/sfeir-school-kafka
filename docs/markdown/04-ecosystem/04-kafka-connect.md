@@ -1,3 +1,9 @@
+<!-- .slide: class="transition" -->
+
+# Kafka Connect
+
+##==##
+
 <!-- .slide: -->
 
 # Kafka Connect

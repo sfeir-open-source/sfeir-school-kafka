@@ -1,3 +1,9 @@
+<!-- .slide: class="transition" -->
+
+# Schema Registry
+
+##==##
+
 <!-- .slide: -->
 
 # Schema Registry

@@ -1,3 +1,8 @@
+<!-- .slide: class="transition" -->
+
+# REST Proxy
+
+##==##
 <!-- .slide: -->
 
 # REST Proxy
