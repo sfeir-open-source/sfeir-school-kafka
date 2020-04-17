@@ -21,7 +21,7 @@ producer.close();
 # Premier producteur (suite)
 
 ```java
-ProducerRecord<String, String> record = new ProducerRecord("customers", "", "");
+ProducerRecord<String, String> record = new ProducerRecord("customers", "1", "...");
 
 producer.send(record, (metadata, exception) -> {
   if (exception != null) {

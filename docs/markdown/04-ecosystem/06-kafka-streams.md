@@ -317,8 +317,8 @@ streams.start();
 
 // HTTP server to respond to RPC calls
 HttpServer rpcServer = HttpServer.create(new InetSocketAddress("localhost", 1234), 0);
-server.createContext("/state", new MyHttpHandler());
-server.start();
+rpcServer.createContext("/state", new MyHttpHandler());
+rpcServer.start();
 ```
 
 <!-- .element: class="big-code" -->

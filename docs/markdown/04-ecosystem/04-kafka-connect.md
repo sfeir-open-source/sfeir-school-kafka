@@ -2,8 +2,7 @@
 
 # Kafka Connect
 
-* Framework développé par Confluent pour la version 0.9 de Kafka
-
+* Framework ajouté dans la version 0.9 de Kafka
 * Permet l'extraction et l'intégration de données depuis ou vers des systèmes externes
 
 ![h-600 center](./assets/images/kafka-connect.svg)

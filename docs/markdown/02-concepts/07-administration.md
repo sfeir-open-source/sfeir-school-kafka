@@ -2,16 +2,11 @@
 
 # Administration
 
-Le CLI Kafka se base sur des classes Scala présentes dans les sources de Kafka. Il est nécessaire d'être positionné sur un noeud du cluster pour utiliser la ligne de commande Kafka.
+Les opérations d'administration sur un cluster sont réalisées via le CLI:
 
-La ligne de commande Kafka permet d'effectuer bon nombre d'opérations sur le cluster:
-
-* création de topics (nombre de partitions, facteur de réplication, ...)
-* description des groupes de consommation sur un topic
-* affichage des partitions rencontrant des retards de réplication
-* ajout d'utilisateurs si un mécanisme de sécurité est activé
-* production vers un topic depuis la console
-* consommation d'un topic et affichage dans la console
+* création des topics
+* détails des groupes de consommation pour un topic
+* ajout des utilisateurs et des ACLs
 * ...
 
 ##==##
@@ -103,6 +98,8 @@ kafka-console-consumer \
 --bootstrap-server localhost:9092 \
 --topic customers \
 --from-beginning
+
+> {"id":1, "email":"john.doe@gmail.com", "gender":"MALE"}
 ```
 
 <!-- .element: class="big-code" -->
