@@ -137,3 +137,20 @@ kafka-consumer-groups \
 ```
 
 <!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="exercice" -->
+
+# Concepts clés - CLI
+
+## Exercice
+
+**step-01 : utilisation du cli**
+
+* Créer un topic Kafka:
+  * 3 partitions
+  * 2 copies
+  * 5 minutes de rétention
+  * compacté
+* Produire un message
+* Consommer un message

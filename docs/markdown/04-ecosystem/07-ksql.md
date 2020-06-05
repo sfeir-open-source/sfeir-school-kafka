@@ -110,7 +110,7 @@ auto.offset.reset=earliest
 
 ```sql
 CREATE STREAM ORDERS (
-  id UUID,
+  id VARCHAR,
   customerId INTEGER,
   orderTimestamp BIGINT,
   totalPrice DOUBLE
@@ -274,6 +274,21 @@ $ EXPLAIN CTAS_SUSPICIOUS_ORDERS_2;
 ```
 
 <!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="exercice" -->
+
+# ksqlDB - ksqlDB vs Kafka Streams
+
+## Exercice
+
+**step-08 : utiliser la syntaxe sql**
+
+* Reproduire le step-07 en KSQL
+  * Réaliser une jointure
+  * Réaliser une aggrégation
+  * Essayer de réprésenter des structures complexes
+* Utiliser le format JSON !
 
 ##==##
 <!-- .slide: class="with-code" -->

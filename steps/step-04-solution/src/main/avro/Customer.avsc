@@ -1,0 +1,23 @@
+{
+  "name": "Customer",
+  "namespace": "com.sfeir.kafka",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int"
+    },
+    {
+      "name": "email",
+      "type": "string"
+    },
+    {
+      "name": "gender",
+      "type": {
+        "type": "enum",
+        "name": "Gender",
+        "symbols": ["MALE", "FEMALE"]
+      }
+    }
+  ]
+}

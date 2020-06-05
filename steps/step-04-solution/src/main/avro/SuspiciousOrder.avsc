@@ -1,0 +1,19 @@
+{
+  "name": "SuspiciousOrder",
+  "namespace": "com.sfeir.kafka",
+  "type": "record",
+  "fields": [
+    {
+      "name": "orderId",
+      "type": "string"
+    },
+    {
+      "name": "customerId",
+      "type": "int"
+    },
+    {
+      "name": "paymentCount",
+      "type": "int"
+    }
+  ]
+}

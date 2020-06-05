@@ -177,3 +177,16 @@ $ http POST http://localhost:8081/compatibility/subjects/(string: subject)/versi
 ```
 
 <!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="exercice" -->
+
+# Schema Registry - Client Kafka
+
+## Exercice
+
+**step-05 : produire et consommer de l'avro**
+
+* Ré utiliser les sources Avro du `Customer`
+* Configurer le `KafkaProducer`
+* Configurer le `KafkaConsumer`

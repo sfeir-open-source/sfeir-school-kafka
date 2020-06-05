@@ -1,0 +1,44 @@
+{
+  "order": 0,
+  "index_patterns": [
+    "customers",
+    "customers-*"
+  ],
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "index.refresh_interval": "15s",
+    "index.mapping.ignore_malformed": true,
+    "analysis.normalizer.lowercase_normalizer.type": "custom",
+    "analysis.normalizer.lowercase_normalizer.filter": ["lowercase"]
+  },
+  "mappings": {
+    "_source": {
+      "enabled": true
+    },
+    "dynamic": false,
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "first_name": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+      "last_name": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+      "age": {
+        "type": "integer"
+      },
+      "email": {
+        "type": "keyword"
+      },
+      "gender": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      }
+    }
+  }
+}

@@ -66,3 +66,17 @@ while (true) {
 ```
 
 <!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="exercice" -->
+
+# Développement - Consommateur
+
+## Exercice
+
+**step-03 : consommation de messages**
+
+* Consommer un message depuis Kafka:
+  * Configurer le `KafkaConsumer`
+  * S'abonner au topic `customers`
+  * Afficher les messages dans la console

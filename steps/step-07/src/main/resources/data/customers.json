@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "email": "Yuko.Birden@sfeir.com",
+    "gender": "FEMALE"
+  },
+  {
+    "id": 2,
+    "email": "Vertie.Pick@sfeir.com",
+    "gender": "MALE"
+  },
+  {
+    "id": 3,
+    "email": "Desire.Cavalier@sfeir.com",
+    "gender": "FEMALE"
+  },
+  {
+    "id": 4,
+    "email": "Teisha.Teeter@sfeir.com",
+    "gender": "FEMALE"
+  },
+  {
+    "id": 5,
+    "email": "Venessa.Martello@sfeir.com",
+    "gender": "FEMALE"
+  },
+  {
+    "id": 6,
+    "email": "Connie.Trawick@sfeir.com",
+    "gender": "MALE"
+  },
+  {
+    "id": 7,
+    "email": "Cari.Dennie@sfeir.com",
+    "gender": "MALE"
+  },
+  {
+    "id": 8,
+    "email": "Kazuko.Caylor@sfeir.com",
+    "gender": "MALE"
+  },
+  {
+    "id": 9,
+    "email": "Mercy.Wenner@sfeir.com",
+    "gender": "MALE"
+  },
+  {
+    "id": 10,
+    "email": "Bev.Teter@sfeir.com",
+    "gender": "FEMALE"
+  }
+]

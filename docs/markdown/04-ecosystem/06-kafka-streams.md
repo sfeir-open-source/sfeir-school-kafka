@@ -272,6 +272,21 @@ paidOrderStream.groupByKey()
 <!-- .element: class="big-code" -->
 
 ##==##
+<!-- .slide: class="exercice" -->
+
+# Kafka Streams - Avro et Jointures
+
+## Exercice
+
+**step-07 : manipuler la librairie**
+
+* Configurer une application Kafka Streams
+  * Configurer les Serdes
+  * Effectuer une jointure de streams
+  * Réaliser une opération d'aggrégation
+* Utiliser Avro faciliter la lecture du code
+
+##==##
 <!-- .slide: -->
 
 # Interactive queries

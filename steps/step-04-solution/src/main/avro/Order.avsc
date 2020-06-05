@@ -1,0 +1,23 @@
+{
+  "name": "Order",
+  "namespace": "com.sfeir.kafka",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "customerId",
+      "type": "int"
+    },
+    {
+      "name": "orderTimestamp",
+      "type": "long"
+    },
+    {
+      "name": "totalPrice",
+      "type": "double"
+    }
+  ]
+}

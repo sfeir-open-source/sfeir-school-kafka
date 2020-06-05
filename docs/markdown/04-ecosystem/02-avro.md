@@ -26,7 +26,7 @@
   "fields": [
     {
       "name": "id",
-      "type": "integer"
+      "type": "int"
     },
     {
       "name": "email",
@@ -81,6 +81,20 @@ $ mvn clean install
 ```
 
 <!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="exercice" -->
+
+# Avro - Génération avec Maven
+
+## Exercice
+
+**step-04 : plugin maven avro**
+
+* Utiliser le plugin Maven Avro:
+  * Créer le schéma Avro `Customer.avsc`
+  * Générer l'artifact Maven
+  * Importer le pour créer une instance de `Customer`
 
 ##==##
 <!-- .slide: -->

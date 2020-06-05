@@ -1,0 +1,6 @@
+{
+  // Customer
+  // Id: Int
+  // Email: String
+  // Gender: Enum(MALE, FEMALE)
+}

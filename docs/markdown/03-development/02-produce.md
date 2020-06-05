@@ -33,3 +33,18 @@ producer.send(record, (metadata, exception) -> {
 ```
 
 <!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="exercice" -->
+
+# Développement - Producteur
+
+## Exercice
+
+**step-02 : production de messages**
+
+* Produire un message dans Kafka:
+  * Configurer le `KafkaProducer`
+  * Créer un `Record`
+  * Envoyer le message dans le topic `customers`
+* S'assurer de l'envoi

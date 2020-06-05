@@ -157,3 +157,19 @@ $ http POST http://localhost:8083/connectors
 ```
 
 <!-- .element class="big-code" -->
+
+##==##
+<!-- .slide: class="exercice" -->
+
+# Kafka Connect - Source et Sink
+
+## Exercice
+
+**step-06 : indexer une table SQL**
+
+* Créer un connecteur source JDBC
+  * Copier le contenu de la table `customers` dans Kafka
+  * Utiliser Avro (facultatif)
+* Créer un connecteur sink Elasticsearch
+  * Copier le contenu du topic `customers` dans un index ES
+  * Visualiser les données dans Kibana

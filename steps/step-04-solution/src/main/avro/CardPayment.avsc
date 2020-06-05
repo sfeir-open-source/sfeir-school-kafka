@@ -1,0 +1,15 @@
+{
+  "name": "CardPayment",
+  "namespace": "com.sfeir.kafka",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "paidPrice",
+      "type": "double"
+    }
+  ]
+}
