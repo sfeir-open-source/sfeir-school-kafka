@@ -9,7 +9,7 @@ Des clients existent dans la plupart des langages:
 * .Net
 * C++
 
-Le client officiel Java reste celui le plus abouti et le plus régulièrement mis à jour avec les montées de version du protocole Kafka.
+Le client officiel Java est le plus stable et suit les évolutions du protocole Kafka.
 
 La plupart des clients se basent sur [librdkafka](https://github.com/edenhill/librdkafka), une implémentation du protocole en C++.
 

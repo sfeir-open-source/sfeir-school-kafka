@@ -19,7 +19,7 @@ L'`exactly once` implique que le rejeu d'un message n'entraîne pas de doublons 
 
 * Introduit en version 0.11
 * Supporté par les clients Kafka et Kafka Streams
-* Mis à jour des metadata des messages
+* Mise à jour des metadata associés aux messages
 
 ##==##
 <!-- .slide: -->
@@ -69,6 +69,8 @@ try {
 
 * `isolation.level=read_committed`
 
-Indique au consommateur de ne récupérer que les messages marqués committés et d'éviter la duplication de messages.
+Indique au consommateur de ne récupérer que les messages marqués committés.
+
+Permet d'éviter la duplication de messages.
 
 Par défaut ce paramètre est placé à `read_uncommitted`.

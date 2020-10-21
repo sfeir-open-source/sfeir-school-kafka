@@ -2,13 +2,13 @@
 
 # Zookeeper
 
-* Projet Apache open-source
+* Projet opensource de la fondation Apache
 * Fournit des mécanismes de synchronisation
 * Permet le stockage de données éphémères et/ou persistées
 * Peut être organisé en cluster (`ensemble`)
 * Utilisé par de nombreux projets open-source:
-  * Kafka
   * Hadoop
+  * Flink
   * Nifi
 
 ##==##
@@ -16,11 +16,11 @@
 
 # Zookeeper (suite)
 
-Kafka utilise Zookeper pour:
+Zookeeper est un composant essentiel de Kafka:
 
-* Gérer les groupes de consommation
-* Détecter les pertes de brokers
-* Stocker les metadata et les ACLs
+* Stockage de la configuration
+* Election du broker controller
+* Gestion des groupes de consommation
 
 Stockage sous forme d'arborescence de nœuds (`znode`):
 

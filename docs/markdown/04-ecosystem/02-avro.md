@@ -51,7 +51,7 @@
 
 * **Generic**
   * le message Avro est récupéré sous forme de "map"
-  * mapping manuel avec un objet Java
+  * mapping manuel avec un objet Java ou non
 
 * **Specific**
   * le message est automatiquement converti en un objet Java
@@ -101,9 +101,9 @@ $ mvn clean install
 
 # Avantages d'Avro
 
-* En envoyant le schéma, chaque message peut être dé serialisé par un consommateur
+* L'envoi du schéma avec chaque message permet au consommateur de désérialiser
 * L'object Avro peut être converti en objet Java pour faciliter la manipulation
-* Le format Avro est un format binaire, ce qui réduit l'espace occupé sur disque et l'utilisation de la bande passante
+* Le format Avro est un format binaire => réduit l'espace disque et la bande passante utilisée
 
 ##==##
 <!-- .slide: -->

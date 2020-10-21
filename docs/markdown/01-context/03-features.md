@@ -11,25 +11,25 @@
 
 **Pub/sub**
 
-* Modèle Publish / Subscribe
-* Producteurs produisent dans Kafka
-* Consommateurs reçoivent depuis Kafka
+* Modèle Publish Subscribe
+* Producteurs envoient dans Kafka
+* Consommateurs viennent chercher dans Kafka
 
 <p><br></p>
 
 **Avantages**
 
-* Les producteurs ne se préocuppent pas de savoir qui consommera la donnée
-* Les consommateurs consomment les données à leur rythme via une boucle de polling
-* Rejeu automatique en cas d'erreur d'envoi
-* Un consommateur peut arrêter de consommer et reprendre plus tard
+* Découplage des producteurs et des consommateurs
+* Gestion de la back pressure via une boucle de polling
+* Rejeu automatique côté producteur
+* Possibilité de mettre en pause la consommation
 
 ##==##
 <!-- .slide: -->
 
 # Différences avec JMS
 
-* Haute disponibilité
-* Très gros débit même en standalone
+* Très haute disponibilité
+* Très gros débit même sur un cluster à 1 noeud
 * Peut conserver des To voire des Po sur disque
 * Temps réel ou mode batch possibles

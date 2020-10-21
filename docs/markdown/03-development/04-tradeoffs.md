@@ -20,7 +20,7 @@ There is no such thing as a free lunch.
 
 **Broker**
 
-* Autoriser l'élection d'une partition comme leader même si celle-ci est en retard de réplication
+* Autoriser l'élection d'une partition comme leader même si `under-replicated`
 * N'attendre qu'un seul replica pour qu'un message soit considéré reçu
 
 ```properties
@@ -37,8 +37,8 @@ min.insync.replicas = 1
 
 **Broker**
 
-* Empêcher l'élection d'une partition comme leader si elle n'est pas à jour
-* Attendre que tous les replicas aient bien copié le message pour considérer le message reçu
+* Empêcher l'élection d'une partition comme leader si `under-replicated`
+* Attendre le retour des **TOUS** les replicas
 
 ```properties
 unclean.leader.election = false
@@ -54,9 +54,9 @@ min.insync.replicas = <replication_factor>
 
 **Producteur**
 
-* Attendre que **TOUS** les réplicas aient reçu le message.
-* Re tenter l'envoi du message de façon infinie.
-* Eviter les doublons de message suite à une erreur réseau.
+* Attendre que **TOUS** les réplicas aient reçu le message
+* Re tenter l'envoi du message de façon infinie
+* Eviter les doublons de message suite à une erreur réseau
 
 ```java
 properties.put(ACKS_CONFIG, "all");
@@ -73,8 +73,8 @@ properties.put(MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION_CONFIG, "1");
 
 **Consommateur**
 
-* Consommer depuis le début du topic à la première connexion
-* Désactiver le commit d'offset automatique
+* Consommer depuis le début du topic à la première souscription
+* Désactiver le commit automatique des offsets
 
 ```java
 properties.put(AUTO_OFFSET_RESET_CONFIG, "earliest");
@@ -90,7 +90,7 @@ properties.put(ENABLE_AUTO_COMMIT_CONFIG, "false");
 
 **Producteur**
 
-* Attendre que le leader (et seulement lui) ait reçu le message.
+* Attendre que le leader ait reçu le message
 * Ne pas attendre avant d'envoyer un message
 * Réduire la taille des batchs à envoyer
 
@@ -109,7 +109,7 @@ properties.put(BATCH_SIZE_CONFIG, "<low_value>");
 
 **Consommateur**
 
-* Réduire la taille minimale des batchs à retourner dans la boucle de polling
+* Réduire la taille minimale des batchs à retourner au consommateur
 
 ```java
 properties.put(FETCH_MIN_BYTES_CONFIG, "1");

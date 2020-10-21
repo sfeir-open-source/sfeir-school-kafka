@@ -2,11 +2,11 @@
 
 # Administration
 
-Les opérations d'administration sur un cluster sont réalisées via le CLI:
+Le CLI permet d'effectuer les opérations d'administrations:
 
-* création des topics
-* détails des groupes de consommation pour un topic
-* ajout des utilisateurs et des ACLs
+* Création des topics
+* Description des groupes de consommation
+* Ajout des utilisateurs
 * ...
 
 ##==##

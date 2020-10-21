@@ -5,8 +5,8 @@
 **Message**
 
 * Unité de base dans Kafka
-* Consiste en un couple clé / valeur (+ headers)
-* Stocké dans Kafka comme `byte[]`
+* Couple clé / valeur (+ headers)
+* Stocké au format binaire
 * Egalement appelé `record` ou `log`
 
 <br>
@@ -43,13 +43,14 @@ value: {"id": 1, "email": "john.doe@gmail.com", "gender": "MALE"}
 
 # Format
 
-* Tout type de format accepté à condition de sérialiser en binaire avant de produire dans Kafka
-* Responsabilité des producteurs et consommateurs d'effectuer la conversion
-* Kafka fournit des convertisseurs pour les types primitifs: (`Integer`, `String`, `Boolean`)
+* Le format binaire est l'unique format autorisé par Kafka
+* Le producteur doit sérialiser le message en binaire
+* Le consommateur doit dé sérialiser le message vers le format désiré
+* Convertisseurs natifs pour les types primitifs: (`Integer`, `String`, `Boolean`)
 
 <br><br>
 
-Comment gérer des types plus complexes ? 😱
+Comment gérer des types plus complexes ?
 
 <!-- .element: class="center-big" -->
 
@@ -58,12 +59,12 @@ Comment gérer des types plus complexes ? 😱
 
 # Format
 
-* Possibilité de créer ses propres convertisseurs
+* Possible de créer ses propres convertisseurs
 * Permet de convertir un POJO en JSON avec Jackson par exemple
 * Transparent pour le développeur
 
 <br><br>
 
-Mais comment valider le format de données ? 🤔
+Comment valider le format de données ?
 
 <!-- .element: class="center-big" -->

@@ -2,10 +2,10 @@
 
 # Producteurs
 
-* Produisent les messages vers les topics
-* Convertissent les messages en `byte[]`
-* Batching et compression des messages destinés à une partition
-* Peuvent choisir de router un message vers une partition précise
+* Créent les messages et les envoient vers les topics
+* Doivent convertir les messages en binaire
+* Gérent l'envoi par batch et la compression des messages
+* Décident de cibler ou non une partition précise
 
 ##==##
 <!-- .slide: -->
@@ -45,30 +45,30 @@ public class MyCustomPartitioner implements Partitioner {
 
 Le partitionnement permet de:
 
-* Garantir une distribution équitable des messages dans chaque partition
-* Partitionner sémantiquement en associant une partition à une population de messages
+* Garantir une distribution équitable des messages au sein d'un topic
+* Associer une partition à une population de messages
 
-Les messages avec la même clé arriveront toujours dans la même partition tant que le nombre de partitions du topic reste inchangé.
+Les messages avec la même clé seront toujours envoyés dans une même partition.
 
-Lorsque l'on utilise une clé pour nos messages, il faut donc être sûr d'avoir une cardinalité suffisante pour permettre une bonne distribution des données.
+Les clés doivent être suffisamment diversifiées pour garantir une bonne distribution des messages.
 
 ##==##
 <!-- .slide: -->
 
 # Consommateurs
 
-* Consomment les messages d'un ou plusieurs topics par batchs
-* Peuvent s'assigner toute ou partie des partitions d'un topic
-* Convertissent les messages au format binaire en POJO
-* Peuvent être regroupés en `Consumer Group` pour distribuer la consommation d'un topic
+* Consomment les messages d'un ou de plusieurs topics
+* Décident de consommer un topic ou des partitions en particulier
+* Convertissent les messages vers le format adéquat
+* Peuvent être regroupés en groupe de consommation ou non
 
 ##==##
 <!-- .slide: -->
 
 # Groupe de consommation
 
-* Par défaut un consommateur récupère l'intégralité des messages d'un topic.
-* Pour distribuer la consommation, il est nécessaire d'associer plusieurs consommateurs à un même `Consumer Group`
+* Par défaut un consommateur consomment toutes les partitions d'un topic
+* Plusieurs consommateurs peuvent former un groupe de consommation pour distribuer la charge
 
 <br>
 
@@ -79,10 +79,10 @@ Lorsque l'on utilise une clé pour nos messages, il faut donc être sûr d'avoir
 
 # Groupe de consommation (suite)
 
-* Un consommateur `commit` l'offset des messages qu'il traite
+* Le consommateur enregistre l'offset du dernier message consommé (`commit`)
 * Permet aux consommateurs de reprendre là où ils s'étaient arrêtés
-* Par défaut le commit est effectué automatiquement à intervalle régulier
-* Le commit peut être effectué manuellement pour plus de contrôle
+* Par défaut le commit est effectué automatiquement et à intervalle régulier
+* Il peut être effectué manuellement pour plus de contrôle
 
 <br>
 
@@ -93,15 +93,15 @@ Lorsque l'on utilise une clé pour nos messages, il faut donc être sûr d'avoir
 
 # Groupe de consommation (suite)
 
-Kafka assigne automatiquement les partitions pour chaque consommateur d'un même groupe de consommation.
+Kafka assigne automatiquement les partitions aux consommateurs d'un même groupe.
 
 Deux stratégies sont disponibles:
 
 * `range`
 * `round-robin`
 
-En règle générale, il faut favoriser la stratégie `round-robin` qui permet une assignation équilibrée des partitions.
+En général la stratégie `round-robin` permet une assignation équilibrée des partitions.
 
-S'il y a plus de consommateurs que de partitions alors certains consommateurs ne feront rien.
+S'il y a plus de consommateurs que de partitions, ils resteront en attente.
 
-Si un consommateur tombe en erreur alors Kafka ré assigne l'ensemble des partitions aux consommateurs présents. Cette opération est appelée un `rebalance`.
+En cas de panne d'un consommateur, Kafka déclenche automatiquement une réassignation (`rebalance`).

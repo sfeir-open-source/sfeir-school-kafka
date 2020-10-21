@@ -4,13 +4,14 @@
 
 Les cas d'utilisation les plus courants:
 
-* Gestion de notifications
-* Event sourcing de source de données externes
-* Récolte et stockage de logs et de métriques
-* Pub/sub pour de l'Internet of Things
+* Envoi de notifications
+* Event sourcing
+* Ingestion de logs et de métriques
+* Internet of Things (Confluent)
 
 <br>
 
-Kafka est également souvent utilisé comme un buffer persisté en amont de systèmes BigData.
+Kafka peut également être utilisé comme un buffer résilient pour soulager certains composants.
 
-Cela permet de conserver un historique de messages et de pouvoir les ré indexer dans le système en cas de panne ou de correction de bug.
+Avoir ce buffer permet de conserver un historique de messages afin de re déclencher l'ingestion
+de données en cas de panne ou de bug.

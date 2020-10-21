@@ -10,7 +10,7 @@
 
 Composant développé par Confluent:
 
-* Enregistre et versionne les schémas Avro
+* Enregistre et versionne des schémas Avro (Protobuf et JSON depuis la 5.5)
 * Expose une API REST pour récupérer un schéma
 * Vérifie la rétro compatibilité d'une nouvelle version de schéma
 * Ne nécessite plus d'envoyer le schéma avec chaque message

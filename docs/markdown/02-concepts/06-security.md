@@ -9,7 +9,7 @@ Kafka peut exposer plusieurs ports:
 * `SASL`: authentification
 * `SSL + SASL`: chiffrement SSL et authentification SASL
 
-Un client Kafka décide du port à contacter.
+Le client Kafka décide du port à contacter.
 
 ##==##
 <!-- .slide: -->
