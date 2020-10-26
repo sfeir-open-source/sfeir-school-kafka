@@ -32,7 +32,8 @@ public class Main {
 
     // 1. set producer configuration
     properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
-    properties.put(ProducerConfig., "");
+    // properties.put(ProducerConfig.KEY_SERIALIZER_CONFIG, "...");
+    // another piece of configuration
 
     // 2. create producer
     Producer<Integer, String> producer = null;
@@ -48,7 +49,7 @@ public class Main {
     });
 
     // 6. close producer on shutdown
-    Runtime.getRuntime().;
+    // Runtime.getRuntime(...);
 
     latch.await(10, TimeUnit.SECONDS);
 

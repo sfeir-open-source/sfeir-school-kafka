@@ -8,6 +8,20 @@
    <artifactId>step-04</artifactId>
    <version>1.0.0-SNAPSHOT</version>
 
+   <repositories>
+      <repository>
+         <id>confluent</id>
+         <url>http://packages.confluent.io/maven</url>
+      </repository>
+   </repositories>
+
+   <pluginRepositories>
+      <pluginRepository>
+         <id>confluent</id>
+         <url>http://packages.confluent.io/maven</url>
+      </pluginRepository>
+   </pluginRepositories>
+
    <properties>
       <avro.version>1.9.0</avro.version>
       <java.version>1.8</java.version>

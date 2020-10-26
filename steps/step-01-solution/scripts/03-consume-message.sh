@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 kafka-console-consumer \
---bootstrap-server kafka-1:9092 \
+--bootstrap-server kafka:9092 \
 --topic customers \
 --max-messages 1 \
 --from-beginning \

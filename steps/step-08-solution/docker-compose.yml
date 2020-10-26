@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:5.4.0
+    image: confluentinc/cp-zookeeper:5.5.2
     container_name: zookeeper
     restart: on-failure:3
     environment:
@@ -10,7 +10,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: "2181"
 
   kafka:
-    image: confluentinc/cp-kafka:5.4.0
+    image: confluentinc/cp-kafka:5.5.2
     container_name: kafka
     restart: on-failure:3
     environment:
@@ -22,12 +22,12 @@ services:
       KAFKA_DEFAULT_REPLICATION_FACTOR: 1
       KAFKA_DELETE_TOPIC_ENABLE: "true"
     volumes:
-      - ./scripts:/tmp/scripts
+      - ./scripts:/scripts
     depends_on:
       - zookeeper
 
   ksql-server:
-    image: confluentinc/cp-ksql-server:5.4.0
+    image: confluentinc/cp-ksql-server:5.5.2
     container_name: ksql-server
     restart: on-failure:3
     environment:
@@ -35,9 +35,11 @@ services:
       KSQL_LISTENERS: "http://0.0.0.0:8088"
     ports:
       - "8088:8088"
+    depends_on:
+      - kafka
 
   ksql-cli:
-    image: confluentinc/cp-ksql-cli:5.4.0
+    image: confluentinc/cp-ksql-cli:5.5.2
     container_name: ksql-cli
     restart: always
     entrypoint: /bin/bash

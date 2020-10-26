@@ -28,6 +28,7 @@ public class Main {
 
     // 1. set consumer configuration
     properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
+    // add more consumer configuration
 
     // 2. create consumer
     Consumer<Integer, String> consumer = null;

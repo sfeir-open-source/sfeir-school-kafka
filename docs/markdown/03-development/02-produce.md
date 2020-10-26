@@ -35,6 +35,23 @@ producer.send(record, (metadata, exception) -> {
 <!-- .element: class="big-code" -->
 
 ##==##
+
+# Configuration
+
+| Nom | Description |
+| --- | ----------- |
+| **bootstrap.servers** | Liste de brokers Kafka (au moins un) |
+| **key.serializer** | Serializer pour la clé du message |
+| **value.serializer** | Serializer pour la valeur du message |
+| **acks** | Nombre minimum de replicas à jour |
+| **retries** | Nombre de rejeux en cas d'erreur transiente |
+| **max.in.flight.requests.per.connection** | Nombre maximum de rejeux en parallèle |
+| **compression.type** | Algorithme de compression |
+| **linger.ms** | Temps maximum d'attente avant l'envoi d'un batch |
+| **batch.size** | Taille maximale d'un batch avant envoi |
+| **client.id** | Identifiant du producteur |
+
+##==##
 <!-- .slide: class="exercice" -->
 
 # Développement - Producteur

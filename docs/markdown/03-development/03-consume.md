@@ -68,6 +68,22 @@ while (true) {
 <!-- .element: class="big-code" -->
 
 ##==##
+
+# Configuration
+
+| Nom | Description |
+| --- | ----------- |
+| **bootstrap.servers** | Liste de brokers Kafka (au moins un) |
+| **key.deserializer** | Deserializer pour la clé du message |
+| **value.deserializer** | Deserializer pour la valeur du message |
+| **group.id** | Nom du groupe de consommation |
+| **enable.auto.commit** | Active le commit automatique des offsets |
+| **auto.offset.reset** | Définit la stratégie en cas de première connexion |
+| **fetch.min.bytes** | Nombre minimum d'octets par batch |
+| **partition.assignment.strategy** | Stratégie d'assignation des partitions au sein du groupe |
+| **client.id** | Identifiant du consommateur |
+
+##==##
 <!-- .slide: class="exercice" -->
 
 # Développement - Consommateur

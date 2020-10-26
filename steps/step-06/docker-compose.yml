@@ -34,7 +34,7 @@ services:
       - elasticsearch
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:5.4.0
+    image: confluentinc/cp-zookeeper:5.5.2
     container_name: zookeeper
     restart: on-failure:3
     environment:
@@ -46,7 +46,7 @@ services:
       - elasticsearch
 
   kafka:
-    image: confluentinc/cp-kafka:5.4.0
+    image: confluentinc/cp-kafka:5.5.2
     container_name: kafka
     restart: on-failure:3
     environment:
@@ -61,7 +61,7 @@ services:
       - zookeeper
 
   kafka-connect:
-    image: confluentinc/cp-kafka-connect:5.4.0
+    image: confluentinc/cp-kafka-connect:5.5.2
     container_name: kafka-connect
     restart: on-failure:3
     environment:

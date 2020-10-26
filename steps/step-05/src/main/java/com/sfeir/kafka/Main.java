@@ -34,8 +34,9 @@ public class Main {
 
     properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "kafka:29092");
     properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
+    // add more producer configuration
 
-    // ...
+    // produce a few records
   }
 
   private void consume() {
@@ -43,8 +44,9 @@ public class Main {
 
     properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "kafka:29092");
     properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class);
+    // add more consumer configuration
 
-    // ...
+    // consume the records
   }
 
 }

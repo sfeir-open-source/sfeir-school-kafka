@@ -24,7 +24,7 @@
 
    <properties>
       <avro.version>1.9.0</avro.version>
-      <confluent.version>5.4.0</confluent.version>
+      <confluent.version>5.5.0</confluent.version>
       <java.version>1.8</java.version>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    </properties>
