@@ -284,7 +284,7 @@ paidOrderStream.groupByKey()
   * Configurer les Serdes
   * Effectuer une jointure de streams
   * Réaliser une opération d'aggrégation
-* Utiliser Avro faciliter la lecture du code
+* Utiliser Avro pour faciliter la lecture du code
 
 ##==##
 <!-- .slide: -->
@@ -376,7 +376,7 @@ Installation avec Maven:
 <dependency>
   <groupId>org.apache.kafka</groupId>
   <artifactId>kafka-streams-test-utils</artifactId>
-  <version>2.4.0</version>
+  <version>2.5.0</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -438,6 +438,43 @@ EmbeddedKafkaCluster EMBEDDED_CLUSTER = new EmbeddedKafkaCluster(1);
 @BeforeEach void setUp() {
   Properties props = new Properties();
   props.put("bootstrap.servers", EMBEDDED_CLUSTER.bootstrapServers());
+  ...
+}
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="with-code" -->
+
+# Tests d'intégration (alternative)
+
+`Testcontainers` est une alternative viable basée sur Docker:
+
+```xml
+<dependency>
+  <groupId>org.testcontainers</groupId>
+  <artifactId>kafka</artifactId>
+  <version>1.14.0</version>
+  <scope>test</scope>
+</dependency>
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="with-code" -->
+
+# Tests d'intégration (alternative)
+
+```java
+@ClassRule public static KafkaContainer kafka = new KafkaContainer(
+  DockerImageName.parse("confluentinc/cp-kafka:5.5.0")
+);
+
+@Test public void test() {
+  Properties props = new Properties();
+  props.put("bootstrap.servers", kafka.getBootstrapServers());
   ...
 }
 ```

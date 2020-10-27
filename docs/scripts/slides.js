@@ -23,8 +23,8 @@ function conceptsSlides() {
     '02-concepts/01-messages.md',
     '02-concepts/02-topics.md',
     '02-concepts/03-clients.md',
-    '02-concepts/04-brokers.md',
-    '02-concepts/05-zookeeper.md',
+    '02-concepts/04-zookeeper.md',
+    '02-concepts/05-brokers.md',
     '02-concepts/06-security.md',
     '02-concepts/07-administration.md',
   ];

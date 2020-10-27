@@ -10,7 +10,7 @@
 
 Composant développé par Confluent:
 
-* Enregistre et versionne des schémas Avro (Protobuf et JSON depuis la 5.5)
+* Enregistre et versionne des schémas Avro (Protobuf et JSON depuis Confluent 5.5)
 * Expose une API REST pour récupérer un schéma
 * Vérifie la rétro compatibilité d'une nouvelle version de schéma
 * Ne nécessite plus d'envoyer le schéma avec chaque message
@@ -31,7 +31,7 @@ Confluent propose un `KafkaAvroSerializer` et un `KafkaAvroDeserializer` s'inté
 
 1. Le producteur vérifie s'il possède le schéma associé au message. Si ce n'est pas le cas, le schéma est généré et pushé au Schema Registry. Finalement il est mis en cache par le producteur.
 
-1. Le Schema Registry s'assure que si le schéma a évolué, il respecte toujours le niveau de compatibilité configuré au topic. Sinon le `KafkaAvroSerializer` échoue et stoppe le producteur.
+1. Le Schema Registry s'assure que si le schéma a évolué, celui-ci respecte toujours le niveau de compatibilité configuré au topic. Sinon le `KafkaAvroSerializer` échoue et stoppe le producteur.
 
 1. Si tout se passe bien, le producteur envoie le message au format Avro précédé de l'ID du schéma dans le Schema Registry.
 
