@@ -35,6 +35,7 @@ producer.send(record, (metadata, exception) -> {
 <!-- .element: class="big-code" -->
 
 ##==##
+<!-- .slide: -->
 
 # Configuration
 

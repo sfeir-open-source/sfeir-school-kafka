@@ -81,6 +81,30 @@ Cette valeur sera utilisée comme:
 ##==##
 <!-- .slide: class="with-code" -->
 
+# Configuration (suite)
+
+**Default Serdes**
+
+* `default.key.serde`
+* `default.value.serde`
+
+Permettent de spécifier un couple sérializer/déserializer par défaut pour les clés et les valeurs.
+
+```java
+Map<String, String> serdeConfig = singletonMap("schema.registry.url", "http://localhost:8081");
+
+SpecificAvroSerde<CardPayment> cardPaymentSerde = new SpecificAvroSerde<>();
+cardPaymentSerde.configure(serdeConfig, false);
+
+...
+props.put("default.value.serde", cardPaymentSerde);
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="with-code" -->
+
 # Première application Kafka Streams
 
 ```java

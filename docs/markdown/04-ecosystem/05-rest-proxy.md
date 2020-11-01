@@ -125,3 +125,22 @@ requests.get(url, headers=headers)
 ```
 
 <!-- .element class="big-code" -->
+
+##==##
+<!-- .slide: -->
+
+# Avantages
+
+* Permet l'intégration de n'importe quel langage
+* Réduit le time to market
+* Gestion native du format Avro
+
+##==##
+<!-- .slide: -->
+
+# Inconvénients
+
+* Peu de flexibilité
+* Pas de gestion fine des ACLs
+* Très facile de reproduire une API REST pour produire dans Kafka
+* Préfèrable d'utiliser un client natif pour consommer dans Kafka

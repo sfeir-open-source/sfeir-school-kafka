@@ -147,6 +147,48 @@ WITH (
 ##==##
 <!-- .slide: class="with-code" -->
 
+# Requêtes
+
+**Requête pull**
+
+```sql
+SELECT *
+FROM CUSTOMERS
+WHERE id = 1;
+```
+
+<!-- .element: class="big-code" -->
+
+<br>
+
+**Requête push**
+
+```sql
+SELECT *
+FROM CUSTOMERS
+WHERE id = 1
+EMIT CHANGES;
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: -->
+
+# Types supportés
+
+* `INTEGER`
+* `BIGINT`
+* `DOUBLE`
+* `VARCHAR`
+* `BOOLEAN`
+* `STRUCT`
+* `ARRAY`
+* `MAP`
+
+##==##
+<!-- .slide: class="with-code" -->
+
 # Commandes ksqlDB
 
 * Lister les topics disponibles:
