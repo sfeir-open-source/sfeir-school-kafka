@@ -18,8 +18,8 @@ public class Main {
 
   private static final Logger logger = LoggerFactory.getLogger("step-02");
 
-  private final String customerJson = "{\"" +
-          "\": 1, " +
+  private final String customerJson = "{" +
+          "\"id\": 1, " +
           "\"email\": \"john.doe@gmail.com\", " +
           "\"gender\": \"MALE\"" +
           "}";

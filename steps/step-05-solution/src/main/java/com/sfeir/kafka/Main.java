@@ -1,9 +1,9 @@
 package com.sfeir.kafka;
 
+import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
-import io.confluent.kafka.serializers.KafkaAvroSerializerConfig;
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -48,12 +48,12 @@ public class Main {
 
     Properties properties = new Properties();
 
-    properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "kafka:29092");
+    properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
     properties.put(CommonClientConfigs.CLIENT_ID_CONFIG, "step-05-producer");
     properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class);
     properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
-    properties.put(KafkaAvroSerializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
-    properties.put(KafkaAvroSerializerConfig.AUTO_REGISTER_SCHEMAS, Boolean.TRUE.toString());
+    properties.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
+    properties.put(AbstractKafkaSchemaSerDeConfig.AUTO_REGISTER_SCHEMAS, Boolean.TRUE.toString());
     properties.put(ProducerConfig.ACKS_CONFIG, "all");
     properties.put(ProducerConfig.RETRIES_CONFIG, Integer.MAX_VALUE + "");
     properties.put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1");
@@ -82,13 +82,13 @@ public class Main {
   private void consume() {
     Properties properties = new Properties();
 
-    properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "kafka:29092");
+    properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
     properties.put(CommonClientConfigs.CLIENT_ID_CONFIG, "step-05-consumer");
     properties.put(ConsumerConfig.GROUP_ID_CONFIG, "step-05-group");
     properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, IntegerDeserializer.class);
     properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class);
-    properties.put(KafkaAvroDeserializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
-    properties.put(KafkaAvroDeserializerConfig.AUTO_REGISTER_SCHEMAS, Boolean.FALSE.toString());
+    properties.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
+    properties.put(AbstractKafkaSchemaSerDeConfig.AUTO_REGISTER_SCHEMAS, Boolean.FALSE.toString());
     properties.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, Boolean.TRUE.toString());
     properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, Boolean.FALSE.toString());
     properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");

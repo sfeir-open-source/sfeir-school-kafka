@@ -8,8 +8,8 @@ import com.sfeir.kafka.Order;
 import com.sfeir.kafka.init.models.CardPaymentDTO;
 import com.sfeir.kafka.init.models.CustomerDTO;
 import com.sfeir.kafka.init.models.OrderDTO;
+import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
-import io.confluent.kafka.serializers.KafkaAvroSerializerConfig;
 import org.apache.commons.io.IOUtils;
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -120,8 +120,8 @@ public class Main {
     properties.put(CommonClientConfigs.CLIENT_ID_CONFIG, "before-step-07-" + new Random().nextInt());
     properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, keySerializer);
     properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
-    properties.put(KafkaAvroSerializerConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
-    properties.put(KafkaAvroSerializerConfig.AUTO_REGISTER_SCHEMAS, Boolean.FALSE.toString());
+    properties.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
+    properties.put(AbstractKafkaSchemaSerDeConfig.AUTO_REGISTER_SCHEMAS, Boolean.FALSE.toString());
 
     return properties;
   }

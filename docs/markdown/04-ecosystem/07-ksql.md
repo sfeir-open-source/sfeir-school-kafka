@@ -145,46 +145,17 @@ WITH (
 <!-- .element: class="big-code" -->
 
 ##==##
-<!-- .slide: class="with-code" -->
-
-# Requêtes
-
-**Requête pull**
-
-```sql
-SELECT *
-FROM CUSTOMERS
-WHERE id = 1;
-```
-
-<!-- .element: class="big-code" -->
-
-<br>
-
-**Requête push**
-
-```sql
-SELECT *
-FROM CUSTOMERS
-WHERE id = 1
-EMIT CHANGES;
-```
-
-<!-- .element: class="big-code" -->
-
-##==##
 <!-- .slide: -->
 
-# Types supportés
+# Paramètres
 
-* `INTEGER`
-* `BIGINT`
-* `DOUBLE`
-* `VARCHAR`
-* `BOOLEAN`
-* `STRUCT`
-* `ARRAY`
-* `MAP`
+| Propriété | Description | Example |
+| --------- | ----------- | ------- |
+| VALUE_FORMAT | Format de sérialisation de la valeur du message. | JSON, DELIMITED, AVRO |
+| KAFKA_TOPIC | Nom du topic sous-jacent. | "customers" |
+| KEY | Nom du champ utilisé pour la clé du message (ROWKEY). | "id" |
+| TIMESTAMP | Nom du champ à utiliser pour l'horodatage du message (ROWTIME). | "created_at" |
+| TIMESTAMP_FORMAT | Format du timestamp utilisé. | "yyyy-MM-dd''T''HH:mm:ssZ" |
 
 ##==##
 <!-- .slide: class="with-code" -->
@@ -318,6 +289,64 @@ $ EXPLAIN CTAS_SUSPICIOUS_ORDERS_2;
 <!-- .element: class="big-code" -->
 
 ##==##
+<!-- .slide: class="with-code" -->
+
+# Commandes
+
+* Lister les topics:
+
+```sql
+SHOW | LIST TOPICS;
+```
+
+<!-- .element: class="big-code" -->
+
+* Afficher le contenu d'un topic:
+
+```sql
+PRINT 'customers' FROM BEGINNING;
+```
+
+<!-- .element: class="big-code" -->
+
+* Exécuter un script local:
+
+```sql
+RUN SCRIPT /scripts/create-streams.sql;
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="with-code" -->
+
+# Commandes (suite)
+
+* Décrire une table ou une stream:
+
+```sql
+DESCRIBE (EXTENDED)? CUSTOMERS;
+```
+
+<!-- .element: class="big-code" -->
+
+* Lister les fonctions disponibles:
+
+```sql
+SHOW | LIST FUNCTIONS;
+```
+
+<!-- .element: class="big-code" -->
+
+* Supprimer une table ou une stream:
+
+```sql
+DROP TABLE (IF EXISTS)? CUSTOMERS (DELETE TOPIC)?;
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
 <!-- .slide: class="exercice" -->
 
 # ksqlDB - ksqlDB vs Kafka Streams
@@ -388,3 +417,21 @@ ksql.queries.file=/path/to/queries.sql
 ```
 
 <!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="with-code" -->
+
+# Format Avro
+
+**Configuration du Schema Registry:**
+
+```bash
+$ ksql-server-start /etc/ksql/ksql-server.properties
+
+# cat /etc/ksql/ksql-server.properties
+...
+ksql.schema.registry.url=http://schema-registry:8081
+```
+
+<!-- .element: class="big-code" -->
+

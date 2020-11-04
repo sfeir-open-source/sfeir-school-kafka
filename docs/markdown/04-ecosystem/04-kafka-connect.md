@@ -158,6 +158,35 @@ $ http POST http://localhost:8083/connectors
 
 <!-- .element class="big-code" -->
 
+* Récupérer la configuration d'un connecteur
+
+```bash
+$ http GET http://localhost:8083/connectors/<connector>
+```
+
+<!-- .element class="big-code" -->
+
+##==##
+<!-- .slide: class="with-code" -->
+
+# API REST (suite)
+
+* Récupérer le status d'un connecteur
+
+```bash
+$ http GET http://localhost:8083/connectors/<connector>/status
+```
+
+<!-- .element class="big-code" -->
+
+* Interrompre ou reprendre un connecteur
+
+```bash
+$ http PUT http://localhost:8083/connectors/<connector>/(pause|resume)
+```
+
+<!-- .element class="big-code" -->
+
 ##==##
 <!-- .slide: class="exercice" -->
 

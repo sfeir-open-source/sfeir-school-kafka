@@ -22,12 +22,12 @@ services:
       KAFKA_DEFAULT_REPLICATION_FACTOR: 1
       KAFKA_DELETE_TOPIC_ENABLE: "true"
     volumes:
-      - ./scripts:/tmp/scripts
+      - ./scripts:/scripts
     depends_on:
       - zookeeper
 
   ksql-server:
-    image: confluentinc/cp-ksql-server:5.5.2
+    image: confluentinc/cp-ksql-server:5.4.3
     container_name: ksql-server
     restart: on-failure:3
     environment:
@@ -39,10 +39,12 @@ services:
       - kafka
 
   ksql-cli:
-    image: confluentinc/cp-ksql-cli:5.5.2
+    image: confluentinc/cp-ksql-cli:5.4.3
     container_name: ksql-cli
     restart: always
     entrypoint: /bin/bash
     tty: true
+    volumes:
+      - ./ksql:/scripts
     depends_on:
       - ksql-server

@@ -78,7 +78,6 @@ services:
       CONNECT_REST_ADVERTISED_HOST_NAME: "kafka-connect"
       CONNECT_REST_PORT: 8083
       CONNECT_PLUGIN_PATH: "/usr/share/java,/etc/kafka-connect/jars"
-      KAFKA_HEAP_OPTS: "-Xms512m -Xmx512m"
     volumes:
       - ./etc/kafka-connect/jars:/etc/kafka-connect/jars
     ports:
