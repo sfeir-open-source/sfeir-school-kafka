@@ -115,7 +115,7 @@ $ http GET http://localhost:8081/subjects
 
 <!-- .element: class="big-code" -->
 
-* Enregiste une nouvelle version d'un schéma existant:
+* Enregistrer une nouvelle version d'un schéma existant:
 
 ```bash
 $ http POST http://localhost:8081/subjects/(string: subject)
@@ -123,7 +123,7 @@ $ http POST http://localhost:8081/subjects/(string: subject)
 
 <!-- .element: class="big-code" -->
 
-* Enregistre un nouveau schéma ou crée une nouvelle version:
+* Enregistrer un nouveau schéma ou ajouter une nouvelle version:
 
 ```bash
 $ http POST http://localhost:8081/subjects/(string: subject)/versions
