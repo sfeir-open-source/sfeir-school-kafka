@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import static java.util.Collections.singletonMap;
-import static io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG;
+import static io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG;
 
 public class Main {
 

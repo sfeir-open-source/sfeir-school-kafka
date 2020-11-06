@@ -81,7 +81,7 @@ records.forEach(record -> {
 });
 
 // commit asynchrone des offsets
-consumer.asyncCommit(offsets);
+consumer.commitAsync(offsets, null);
 ```
 
 <!-- .element: class="big-code" -->

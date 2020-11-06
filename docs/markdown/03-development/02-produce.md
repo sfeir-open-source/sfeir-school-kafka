@@ -27,7 +27,7 @@ producer.send(record, (metadata, exception) -> {
   if (exception != null) {
     // manage exception here
   } else {
-    System.out.println(record.offset());
+    System.out.println(metadata.offset());
   }
 });
 ```

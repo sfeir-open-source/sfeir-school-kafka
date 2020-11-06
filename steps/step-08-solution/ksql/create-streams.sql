@@ -1,5 +1,7 @@
 -- Create Tables and Streams --
 
+-- SET 'auto.offset.reset'='earliest';
+
 CREATE TABLE CUSTOMERS (
   id INTEGER,
   email VARCHAR,
