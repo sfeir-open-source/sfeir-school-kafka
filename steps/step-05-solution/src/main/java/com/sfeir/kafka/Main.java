@@ -94,6 +94,7 @@ public class Main {
     properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
     properties.put(ConsumerConfig.FETCH_MIN_BYTES_CONFIG, "1");
     properties.put(ConsumerConfig.PARTITION_ASSIGNMENT_STRATEGY_CONFIG, StickyAssignor.class.getName());
+    properties.put(ConsumerConfig.ALLOW_AUTO_CREATE_TOPICS_CONFIG, Boolean.FALSE.toString());
 
     Consumer<Integer, Customer> consumer = new KafkaConsumer<>(properties);
 

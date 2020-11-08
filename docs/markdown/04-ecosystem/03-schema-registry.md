@@ -33,7 +33,7 @@ Confluent propose un `KafkaAvroSerializer` et un `KafkaAvroDeserializer` s'inté
 
 1. Le Schema Registry s'assure que si le schéma a évolué, celui-ci respecte toujours le niveau de compatibilité configuré au topic. Sinon le `KafkaAvroSerializer` échoue et stoppe le producteur.
 
-1. Si tout se passe bien, le producteur envoie le message au format Avro précédé de l'ID du schéma dans le Schema Registry.
+1. Si tout se passe bien, le producteur envoie le message au format Avro précédé de l'ID du schéma généré par le Schema Registry.
 
 1. Les consommateurs récupèrent le schéma grâce à son ID et peuvent déserialiser le message en toute sécurité.
 

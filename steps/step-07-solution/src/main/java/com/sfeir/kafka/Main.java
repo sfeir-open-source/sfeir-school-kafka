@@ -93,6 +93,7 @@ public class Main {
       )
       .filter((key, value) -> value.getPaymentCount() > 1)
       .toStream()
+      .filter((key, value) -> value != null)
       .through("suspicious_orders", Produced.with(Serdes.String(), suspiciousOrderSerde))
       .print(printed);
 

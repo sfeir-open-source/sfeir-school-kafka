@@ -70,7 +70,8 @@ headers = {
 payload = {
   "name": "my_consumer_instance",
   "format": "json",
-  "auto.offset.reset": "earliest"
+  "auto.offset.reset": "earliest",
+  "auto.commit.enable": "false"
 }
 requests.post(url, headers=headers, data=json.dumps(payload))
 ```
@@ -122,6 +123,49 @@ requests.get(url, headers=headers)
   "value": { "id": 1, "email": "john.doe@gmail.com", "gender": "MALE" },
   ...
 }]
+```
+
+<!-- .element class="big-code" -->
+
+##==##
+<!-- .slide: class="with-code" -->
+
+# Consommateur REST Proxy (Suite)
+
+4) Commit des offsets
+
+```python
+url = "http://localhost:8082/consumers/my_consumer_group/instances/my_consumer_instance/offsets"
+headers = {
+  "Content-Type": "application/vnd.kafka.v2+json"
+}
+payload = {
+  "offsets": [
+    {
+      "topic": "customers",
+      "partition": 0,
+      "offset": 10
+    }
+  ]
+}
+requests.post(url, headers=headers, data=json.dumps(payload))
+```
+
+<!-- .element class="big-code" -->
+
+##==##
+<!-- .slide: class="with-code" -->
+
+# Consommateur REST Proxy (Suite)
+
+5) Suppression de l'instance
+
+```python
+url = "http://localhost:8082/consumers/my_consumer_group/instances/my_consumer_instance"
+headers = {
+  "Content-Type": "application/vnd.kafka.v2+json"
+}
+requests.delete(url, headers=headers)
 ```
 
 <!-- .element class="big-code" -->

@@ -45,6 +45,7 @@ public class Main {
     properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, Boolean.FALSE.toString());
     properties.put(ConsumerConfig.FETCH_MIN_BYTES_CONFIG, "1");
     properties.put(ConsumerConfig.PARTITION_ASSIGNMENT_STRATEGY_CONFIG, StickyAssignor.class.getName());
+    properties.put(ConsumerConfig.ALLOW_AUTO_CREATE_TOPICS_CONFIG, Boolean.FALSE.toString());
 
     // 2. create consumer
     Consumer<Integer, String> consumer = new KafkaConsumer<>(properties);

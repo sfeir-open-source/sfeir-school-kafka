@@ -453,15 +453,15 @@ Installation avec Maven:
 # Tests d'intégration (suite)
 
 ```java
-EmbeddedKafkaCluster EMBEDDED_CLUSTER = new EmbeddedKafkaCluster(1);
+static EmbeddedKafkaCluster embeddedKafka = new EmbeddedKafkaCluster(1);
 
 @BeforeAll static void setUpAll() {
-  EMBEDDED_CLUSTER.createTopic("customers");
+  embeddedKafka.createTopic("customers");
 }
 
 @BeforeEach void setUp() {
   Properties props = new Properties();
-  props.put("bootstrap.servers", EMBEDDED_CLUSTER.bootstrapServers());
+  props.put("bootstrap.servers", embeddedKafka.bootstrapServers());
   ...
 }
 ```
@@ -492,13 +492,13 @@ EmbeddedKafkaCluster EMBEDDED_CLUSTER = new EmbeddedKafkaCluster(1);
 # Tests d'intégration (alternative)
 
 ```java
-@ClassRule public static KafkaContainer kafka = new KafkaContainer(
-  DockerImageName.parse("confluentinc/cp-kafka:5.5.0")
+@ClassRule static KafkaContainer kafkaContainer = new KafkaContainer(
+  "confluentinc/cp-kafka:5.5.0"
 );
 
-@Test public void test() {
+@BeforeEach void setUp() {
   Properties props = new Properties();
-  props.put("bootstrap.servers", kafka.getBootstrapServers());
+  props.put("bootstrap.servers", kafkaContainer.getBootstrapServers());
   ...
 }
 ```

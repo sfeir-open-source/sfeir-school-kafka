@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "e60a2446-cb97-4859-9d24-05b0e8c0918f",
+		"name": "Sfeir School Kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "step-06",
+			"item": [
+				{
+					"name": "Get ES Sink Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/connectors/elasticsearch-sink/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"connectors",
+								"elasticsearch-sink",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register ES Template",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"order\": 0,\n  \"index_patterns\": [\n    \"customers\",\n    \"customers-*\"\n  ],\n  \"settings\": {\n    \"number_of_shards\": 1,\n    \"number_of_replicas\": 0,\n    \"index.refresh_interval\": \"15s\",\n    \"index.mapping.ignore_malformed\": true,\n    \"analysis.normalizer.lowercase_normalizer.type\": \"custom\",\n    \"analysis.normalizer.lowercase_normalizer.filter\": [\"lowercase\"]\n  },\n  \"mappings\": {\n    \"_source\": {\n      \"enabled\": true\n    },\n    \"dynamic\": false,\n    \"properties\": {\n      \"id\": {\n        \"type\": \"integer\"\n      },\n      \"first_name\": {\n        \"type\": \"keyword\",\n        \"normalizer\": \"lowercase_normalizer\"\n      },\n      \"last_name\": {\n        \"type\": \"keyword\",\n        \"normalizer\": \"lowercase_normalizer\"\n      },\n      \"age\": {\n        \"type\": \"integer\"\n      },\n      \"email\": {\n        \"type\": \"keyword\"\n      },\n      \"gender\": {\n        \"type\": \"keyword\",\n        \"normalizer\": \"lowercase_normalizer\"\n      }\n    }\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/_template/customers-template",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"_template",
+								"customers-template"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Postgres Source",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"postgres-source\",\n  \"config\": {\n    \"connector.class\": \"io.confluent.connect.jdbc.JdbcSourceConnector\",\n    \"connection.url\": \"jdbc:postgresql://postgres:5432/postgres?user=postgres&password=postgres\",\n    \"mode\": \"incrementing\",\n    \"incrementing.column.name\": \"id\",\n    \"topic.prefix\": \"\",\n    \"transforms\": \"createKey,extractInt\",\n    \"transforms.createKey.type\": \"org.apache.kafka.connect.transforms.ValueToKey\",\n    \"transforms.createKey.fields\": \"id\",\n    \"transforms.extractInt.type\": \"org.apache.kafka.connect.transforms.ExtractField$Key\",\n    \"transforms.extractInt.field\": \"id\",\n    \"poll.interval.ms\": 1000,\n    \"tasks.max\": 1\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/connectors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"connectors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create ES Sink",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"elasticsearch-sink\",\n  \"config\": {\n    \"connector.class\": \"io.confluent.connect.elasticsearch.ElasticsearchSinkConnector\",\n    \"connection.url\": \"http://elasticsearch:9200\",\n    \"type.name\": \"_doc\",\n    \"key.ignore\": false,\n    \"behavior.on.null.values\": \"delete\",\n    \"topics\": \"customers\",\n    \"tasks.max\": 1\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/connectors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"connectors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search ES documents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9200/customers/_doc/_search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"customers",
+								"_doc",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Describe Postgres Source",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/connectors/postgres-source",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"connectors",
+								"postgres-source"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "step-08",
+			"item": [
+				{
+					"name": "Get KSQL Server Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
