@@ -218,7 +218,7 @@ $ SHOW TABLES;
 ##==##
 <!-- .slide: class="with-code" -->
 
-# Exemple de requête ksqlDB
+# Création d'une table ksqlDB
 
 ```sql
 CREATE TABLE SUSPICIOUS_ORDERS AS
@@ -236,7 +236,7 @@ CREATE TABLE SUSPICIOUS_ORDERS AS
 ##==##
 <!-- .slide: class="with-code" -->
 
-# Exemple de requête ksqlDB (suite)
+# Description d'une stream/table
 
 ```bash
 $ DESCRIBE SUSPICIOUS_ORDERS;
@@ -256,7 +256,7 @@ $ DESCRIBE SUSPICIOUS_ORDERS;
 ##==##
 <!-- .slide: class="with-code" -->
 
-# Exemple de requête ksqlDB (suite)
+# Exemple de requête ksqlDB (PUSH)
 
 ```sql
 $ SELECT ORDER_ID, PAYMENT_COUNT FROM SUSPICIOUS_ORDERS EMIT CHANGES;
@@ -266,6 +266,24 @@ $ SELECT ORDER_ID, PAYMENT_COUNT FROM SUSPICIOUS_ORDERS EMIT CHANGES;
 > +---------------------------+---------------------------+
 > |7f21d253-c537-4a54-...     |3                          |
 > |e8a9c0b5-5e1b-4ce6-...     |2                          |
+> 
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: class="with-code" -->
+
+# Exemple de requête ksqlDB (PULL)
+
+```sql
+$ SELECT ORDER_ID, PAYMENT_COUNT FROM SUSPICIOUS_ORDERS WHERE ROWKEY='e8a9c0b5-5e1b-4ce6-bb83-3f8bcf0beeb5';
+
+> +---------------------------+---------------------------+
+> |ORDER_ID                   |PAYMENT_COUNT              |
+> +---------------------------+---------------------------+
+> |e8a9c0b5-5e1b-4ce6-...     |2                          |
+> Query terminated
 ```
 
 <!-- .element: class="big-code" -->
