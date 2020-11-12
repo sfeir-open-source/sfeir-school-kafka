@@ -63,6 +63,27 @@ Une liste exhaustive de connecteurs supportés peut être trouvée sur le [Hub C
 ![h-800 center](./assets/images/kafka-connect-jdbc.svg)
 
 ##==##
+<!-- .slide: class="with-code" -->
+
+# Connecteur JDBC (suite)
+
+```json
+{
+	"name": "jdbc-source-connector",
+	"config": {
+		"connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+		"connection.url": "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres",
+		"mode": "incrementing",
+		"incrementing.column.name": "id",
+		"poll.interval.ms": 1000,
+		"tasks.max": 1
+	}
+}
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
 <!-- .slide: -->
 
 # Converters

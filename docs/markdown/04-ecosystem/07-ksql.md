@@ -98,6 +98,7 @@ ksql> SET 'auto.offset.reset'='earliest';
 $ ksql --properties-file /etc/kafka/ksql-cli.properties
 
 # cat ksql-cli.properties
+...
 auto.offset.reset=earliest
 ```
 
@@ -448,7 +449,7 @@ $ ksql-server-start /etc/ksql/ksql-server.properties
 
 # cat /etc/ksql/ksql-server.properties
 ...
-ksql.schema.registry.url=http://schema-registry:8081
+ksql.schema.registry.url=http://localhost:8081
 ```
 
 <!-- .element: class="big-code" -->
