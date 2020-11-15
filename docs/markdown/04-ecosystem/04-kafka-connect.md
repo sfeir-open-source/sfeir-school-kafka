@@ -86,6 +86,33 @@ Une liste exhaustive de connecteurs supportés peut être trouvée sur le [Hub C
 ##==##
 <!-- .slide: -->
 
+# Connecteur Elasticsearch
+
+![h-800 center](./assets/images/kafka-connect-elasticsearch.svg)
+
+##==##
+<!-- .slide: class="with-code" -->
+
+# Connecteur Elasticsearch (suite)
+
+```json
+{
+	"name": "es-sink-connector",
+	"config": {
+		"connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+		"connection.url": "http://localhost:9200",
+		"type.name": "_doc",
+		"topics": ["customers", "orders"],
+		"tasks.max": 1
+	}
+}
+```
+
+<!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: -->
+
 # Converters
 
 Kafka Connect dispose de `converters` intégrés à appliquer sur la clé ou la valeur:
