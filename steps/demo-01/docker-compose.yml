@@ -54,6 +54,8 @@ services:
       KAFKA_DELETE_TOPIC_ENABLE: "true"
     depends_on:
       - zookeeper-1
+      - zookeeper-2
+      - zookeeper-3
 
   kafka-2:
     image: confluentinc/cp-kafka:5.5.2
@@ -69,6 +71,8 @@ services:
       KAFKA_DELETE_TOPIC_ENABLE: "true"
     depends_on:
       - zookeeper-1
+      - zookeeper-2
+      - zookeeper-3
 
   kafka-3:
     image: confluentinc/cp-kafka:5.5.2
@@ -84,3 +88,5 @@ services:
       KAFKA_DELETE_TOPIC_ENABLE: "true"
     depends_on:
       - zookeeper-1
+      - zookeeper-2
+      - zookeeper-3
