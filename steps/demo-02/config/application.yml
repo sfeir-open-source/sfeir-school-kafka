@@ -7,3 +7,4 @@ akhq:
         bootstrap.servers: kafka:9092
       schema-registry:
         url: http://schema-registry:8081
+        type: confluent

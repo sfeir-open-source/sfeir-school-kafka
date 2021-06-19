@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:5.5.2
+    image: confluentinc/cp-zookeeper:6.2.0
     container_name: zookeeper
     restart: on-failure:3
     environment:
@@ -10,7 +10,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: "2181"
 
   kafka:
-    image: confluentinc/cp-kafka:5.5.2
+    image: confluentinc/cp-kafka:6.2.0
     container_name: kafka
     restart: on-failure:3
     environment:
@@ -27,7 +27,7 @@ services:
       - zookeeper
 
   ksql-server:
-    image: confluentinc/cp-ksql-server:5.4.3
+    image: confluentinc/cp-ksql-server:5.4.4
     container_name: ksql-server
     restart: on-failure:3
     environment:
@@ -39,7 +39,7 @@ services:
       - kafka
 
   ksql-cli:
-    image: confluentinc/cp-ksql-cli:5.4.3
+    image: confluentinc/cp-ksql-cli:5.4.4
     container_name: ksql-cli
     restart: always
     entrypoint: /bin/bash

@@ -55,7 +55,7 @@ Installation avec Maven:
 <dependency>
   <groupId>org.apache.kafka</groupId>
   <artifactId>kafka-streams</artifactId>
-  <version>2.5.0</version>
+  <version>${kafka.version}</version>
 </dependency>
 ```
 
@@ -400,7 +400,7 @@ Installation avec Maven:
 <dependency>
   <groupId>org.apache.kafka</groupId>
   <artifactId>kafka-streams-test-utils</artifactId>
-  <version>2.5.0</version>
+  <version>${kafka.version}</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -439,7 +439,7 @@ Installation avec Maven:
 <dependency>
   <groupId>org.apache.kafka</groupId>
   <artifactId>kafka-streams</artifactId>
-  <version>2.5.0</version>
+  <version>${kafka.version}</version>
   <classifier>test</classifier>
   <scope>test</scope>
 </dependency>
@@ -479,7 +479,7 @@ static EmbeddedKafkaCluster embeddedKafka = new EmbeddedKafkaCluster(1);
 <dependency>
   <groupId>org.testcontainers</groupId>
   <artifactId>kafka</artifactId>
-  <version>1.14.0</version>
+  <version>1.15.3</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -493,7 +493,7 @@ static EmbeddedKafkaCluster embeddedKafka = new EmbeddedKafkaCluster(1);
 
 ```java
 @ClassRule static KafkaContainer kafkaContainer = new KafkaContainer(
-  "confluentinc/cp-kafka:5.5.0"
+  "confluentinc/cp-kafka:6.2.0"
 );
 
 @BeforeEach void setUp() {

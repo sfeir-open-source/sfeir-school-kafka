@@ -12,7 +12,6 @@ import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.Grouped;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Printed;
-import org.apache.kafka.streams.kstream.Produced;
 
 import java.util.Map;
 import java.util.Properties;
@@ -25,7 +24,7 @@ public class CountCustomersByGenderApp {
 	private static final String BOOTSTRAP_SERVERS = "localhost:29092";
 	private static final String SCHEMA_REGISTRY_URL = "http://localhost:8081";
 
-	private SchemaRegistryClient client;
+	private final SchemaRegistryClient client;
 
 	public CountCustomersByGenderApp(SchemaRegistryClient client) {
 		this.client = client;
@@ -57,7 +56,6 @@ public class CountCustomersByGenderApp {
 		builder
 			.stream("customers", Consumed.with(Serdes.Integer(), customerSerde()))
 			.selectKey((key, value) -> value.getGender().name())
-			.through("customers_by_gender", Produced.with(Serdes.String(), customerSerde()))
 			.groupByKey(Grouped.with(Serdes.String(), customerSerde()))
 			.count(Materialized.as("customers_count_by_gender_store"))
 			.toStream()

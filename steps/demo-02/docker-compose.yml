@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:5.5.2
+    image: confluentinc/cp-zookeeper:6.2.0
     container_name: zookeeper
     restart: on-failure:3
     environment:
@@ -10,7 +10,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: "2181"
 
   kafka:
-    image: confluentinc/cp-kafka:5.5.2
+    image: confluentinc/cp-kafka:6.2.0
     container_name: kafka
     restart: on-failure:3
     environment:
@@ -25,7 +25,7 @@ services:
       - zookeeper
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:5.5.2
+    image: confluentinc/cp-schema-registry:6.2.0
     container_name: schema-registry
     restart: on-failure:3
     environment:
@@ -37,7 +37,7 @@ services:
       - kafka
 
   akhq:
-    image: tchiotludo/akhq:0.16.0
+    image: tchiotludo/akhq:0.17.0
     container_name: akhq
     restart: on-failure:3
     volumes:

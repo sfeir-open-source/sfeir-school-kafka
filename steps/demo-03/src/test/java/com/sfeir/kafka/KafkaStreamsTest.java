@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class KafkaStreamsTest {
+class KafkaStreamsTest {
 
   private final MockSchemaRegistryClient schemaRegistryClient = new MockSchemaRegistryClient();
   private final CountCustomersByGenderApp app = new CountCustomersByGenderApp(schemaRegistryClient);
