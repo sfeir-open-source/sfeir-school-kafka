@@ -33,3 +33,17 @@ $ zookeeper-shell localhost:2181
 ```
 
 <!-- .element: class="big-code" -->
+
+##==##
+<!-- .slide: -->
+
+# Zookeeper (suite)
+
+Depuis Kafka 2.8, Kafka peut utiliser son propre algorithme de consensus.
+
+Zookeeper n'est donc **plus nécessaire** au fonctionnement d'un cluster Kafka.
+
+<br>
+
+Voir le [KIP-500](https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum)
+pour plus de détails.

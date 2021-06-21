@@ -141,7 +141,7 @@ value.converter.schema.registry.url=http://localhost:8081
 ##==##
 <!-- .slide -->
 
-# Transformers
+# Single Message Transforms (SMT)
 
 Kafka Connect propose également d'intégrer des transformations légères sur chaque message en transit.
 

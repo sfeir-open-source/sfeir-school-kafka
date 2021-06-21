@@ -479,7 +479,7 @@ static EmbeddedKafkaCluster embeddedKafka = new EmbeddedKafkaCluster(1);
 <dependency>
   <groupId>org.testcontainers</groupId>
   <artifactId>kafka</artifactId>
-  <version>1.15.3</version>
+  <version>${testcontainers.version}</version>
   <scope>test</scope>
 </dependency>
 ```
@@ -493,7 +493,7 @@ static EmbeddedKafkaCluster embeddedKafka = new EmbeddedKafkaCluster(1);
 
 ```java
 @ClassRule static KafkaContainer kafkaContainer = new KafkaContainer(
-  "confluentinc/cp-kafka:6.2.0"
+  "confluentinc/cp-kafka:" + KAFKA_VERSION
 );
 
 @BeforeEach void setUp() {
