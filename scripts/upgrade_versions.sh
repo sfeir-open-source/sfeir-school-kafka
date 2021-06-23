@@ -4,7 +4,7 @@ KAFKA_VERSION=2.8.0
 CONFLUENT_VERSION=6.2.0
 
 # Replace image versions in docker-compose files
-for component in kafka zookeeper schema-registry kafka-connect; do
+for component in kafka zookeeper schema-registry kafka-connect kafkacat; do
   sed -i '' "s/confluentinc\/cp-$component:.*/confluentinc\/cp-$component:$CONFLUENT_VERSION/g" steps/**/docker-compose.yml
 done
 
@@ -12,7 +12,7 @@ done
 sed -i '' "s/<kafka\.version>.*<\/kafka\.version>/<kafka\.version>$KAFKA_VERSION<\/kafka\.version>/g" steps/**/pom.xml
 sed -i '' "s/<confluent\.version>.*<\/confluent\.version>/<confluent\.version>$CONFLUENT_VERSION<\/confluent\.version>/g" steps/**/pom.xml
 
-# Check if step solutions compiling
+# Check if step solutions are compiling
 for solution in $(find steps/*-solution -type d -depth 0); do
   if [ -f "$solution/pom.xml" ]; then
     (cd "$solution" && mvn clean compile)
