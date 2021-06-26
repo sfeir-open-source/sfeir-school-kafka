@@ -61,10 +61,10 @@ public class Main {
     Producer<Integer, Customer> producer = new KafkaProducer<>(properties);
 
     Customer customer = Customer.newBuilder()
-            .setId(1)
-            .setEmail("john.doe@sfeir.com")
-            .setGender(Gender.MALE)
-            .build();
+      .setId(1)
+      .setEmail("john.doe@sfeir.com")
+      .setGender(Gender.MALE)
+      .build();
 
     ProducerRecord<Integer, Customer> record = new ProducerRecord<>("customers", 1, customer);
 
@@ -107,7 +107,7 @@ public class Main {
         ConsumerRecords<Integer, Customer> records = consumer.poll(Duration.ofSeconds(10));
 
         records.forEach(record ->
-                logger.warn("Key: {}, Value: {}", record.key(), record.value())
+          logger.warn("Key: {}, Value: {}", record.key(), record.value())
         );
 
         consumer.commitAsync();

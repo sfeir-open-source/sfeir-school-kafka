@@ -50,15 +50,15 @@ public class Main {
 
     for (CustomerDTO customerDTO : customers) {
       Customer customer = Customer.newBuilder()
-              .setId(customerDTO.getId())
-              .setEmail(customerDTO.getEmail())
-              .setGender(Gender.valueOf(customerDTO.getGender()))
-              .build();
+        .setId(customerDTO.getId())
+        .setEmail(customerDTO.getEmail())
+        .setGender(Gender.valueOf(customerDTO.getGender()))
+        .build();
 
       ProducerRecord<Integer, Customer> record = new ProducerRecord<>(
-              "customers",
-              customer.getId(),
-              customer
+        "customers",
+        customer.getId(),
+        customer
       );
 
       producer.send(record);
@@ -74,16 +74,16 @@ public class Main {
 
     for (OrderDTO orderDTO : orders) {
       Order order = Order.newBuilder()
-              .setId(orderDTO.getId())
-              .setCustomerId(orderDTO.getCustomerId())
-              .setOrderTimestamp(Clock.systemUTC().millis())
-              .setTotalPrice(orderDTO.getTotalPrice())
-              .build();
+        .setId(orderDTO.getId())
+        .setCustomerId(orderDTO.getCustomerId())
+        .setOrderTimestamp(Clock.systemUTC().millis())
+        .setTotalPrice(orderDTO.getTotalPrice())
+        .build();
 
       ProducerRecord<String, Order> record = new ProducerRecord<>(
-              "orders",
-              order.getId().toString(),
-              order
+        "orders",
+        order.getId().toString(),
+        order
       );
 
       producer.send(record);
@@ -99,14 +99,14 @@ public class Main {
 
     for (CardPaymentDTO paymentDTO : payments) {
       CardPayment cardPayment = CardPayment.newBuilder()
-              .setId(paymentDTO.getId())
-              .setPaidPrice(paymentDTO.getPaidPrice())
-              .build();
+        .setId(paymentDTO.getId())
+        .setPaidPrice(paymentDTO.getPaidPrice())
+        .build();
 
       ProducerRecord<String, CardPayment> record = new ProducerRecord<>(
-              "card_payments",
-              cardPayment.getId().toString(),
-              cardPayment
+        "card_payments",
+        cardPayment.getId().toString(),
+        cardPayment
       );
 
       producer.send(record);

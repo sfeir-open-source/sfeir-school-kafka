@@ -9,7 +9,9 @@ import org.apache.kafka.common.errors.WakeupException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -34,7 +36,7 @@ public class Main {
     Consumer<Integer, String> consumer = null;
 
     // 3. subscribe to topic
-    consumer.subscribe(null);
+    consumer.subscribe(Collections.singletonList(""));
 
     // 4. register shutdown hook
     Runtime.getRuntime().addShutdownHook(null);
@@ -46,6 +48,8 @@ public class Main {
 
         // 6. print records to console
         records.forEach(record -> {
+          TopicPartition topicPartition = null;
+          OffsetAndMetadata offset = null;
 
           offsets.put(topicPartition, offset);
         });

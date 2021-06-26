@@ -29,7 +29,7 @@ Installation avec Maven:
 <dependency>
   <groupId>org.apache.kafka</groupId>
   <artifactId>kafka-clients</artifactId>
-  <version>2.5.0</version>
+  <version>${kafka.version}</version>
 </dependency>
 ```
 

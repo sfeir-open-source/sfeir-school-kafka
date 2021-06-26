@@ -22,9 +22,10 @@ kafka-topics \
 --create \
 --topic card_payments \
 --partitions 3 \
---replication-factor 1
+--replication-factor 1 \
+--if-not-exists
 
-cat ./data/customers.txt | \
+< /scripts/data/customers.txt \
 kafka-console-producer \
 --broker-list kafka:9092 \
 --topic customers \
@@ -32,7 +33,7 @@ kafka-console-producer \
 --property "key.separator=#" \
 --property "key.serializer=org.apache.kafka.common.serialization.IntegerSerializer"
 
-cat ./data/orders.txt | \
+< /scripts/data/orders.txt \
 kafka-console-producer \
 --broker-list kafka:9092 \
 --topic orders \
@@ -40,7 +41,7 @@ kafka-console-producer \
 --property "key.separator=#" \
 --property "key.serializer=org.apache.kafka.common.serialization.StringSerializer"
 
-cat ./data/card_payments.txt | \
+< /scripts/data/card_payments.txt \
 kafka-console-producer \
 --broker-list kafka:9092 \
 --topic card_payments \

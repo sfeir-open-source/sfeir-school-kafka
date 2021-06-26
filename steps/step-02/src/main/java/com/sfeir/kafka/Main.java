@@ -2,7 +2,6 @@ package com.sfeir.kafka;
 
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.producer.Producer;
-import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,11 +14,11 @@ public class Main {
 
   private static final Logger logger = LoggerFactory.getLogger("step-02");
 
-  private final String customerJson = "{\"" +
-          "\": 1, " +
-          "\"email\": \"john.doe@gmail.com\", " +
-          "\"gender\": \"MALE\"" +
-          "}";
+  private static final String CUSTOMER_JSON = "{\"" +
+    "\": 1, " +
+    "\"email\": \"john.doe@gmail.com\", " +
+    "\"gender\": \"MALE\"" +
+    "}";
 
   public static void main(String... args) throws InterruptedException {
     new Main().step01();

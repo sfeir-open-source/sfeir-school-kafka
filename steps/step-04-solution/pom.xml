@@ -70,6 +70,12 @@
                         <card_payments-value>src/main/avro/CardPayment.avsc</card_payments-value>
                         <suspicious_orders-value>src/main/avro/SuspiciousOrder.avsc</suspicious_orders-value>
                      </subjects>
+                    <schemaTypes>
+                        <customers-value>AVRO</customers-value>
+                        <orders-value>AVRO</orders-value>
+                        <card_payments-value>AVRO</card_payments-value>
+                        <suspicious_orders-value>AVRO</suspicious_orders-value>
+                    </schemaTypes>
                   </configuration>
                </execution>
             </executions>

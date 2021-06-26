@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cat ./data/customer.txt | \
+< /scripts/data/customers.txt \
 kafka-console-producer \
 --broker-list kafka:9092 \
 --topic customers \

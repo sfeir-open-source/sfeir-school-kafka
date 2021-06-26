@@ -18,11 +18,11 @@ public class Main {
 
   private static final Logger logger = LoggerFactory.getLogger("step-02");
 
-  private final String customerJson = "{" +
-          "\"id\": 1, " +
-          "\"email\": \"john.doe@gmail.com\", " +
-          "\"gender\": \"MALE\"" +
-          "}";
+  private static final String CUSTOMER_JSON = "{" +
+    "\"id\": 1, " +
+    "\"email\": \"john.doe@gmail.com\", " +
+    "\"gender\": \"MALE\"" +
+    "}";
 
   public static void main(String... args) throws InterruptedException {
     new Main().step01();
@@ -47,16 +47,16 @@ public class Main {
     Producer<Integer, String> producer = new KafkaProducer<>(properties);
 
     // 3. create record
-    ProducerRecord<Integer, String> record = new ProducerRecord<>("customers", 1, customerJson);
+    ProducerRecord<Integer, String> record = new ProducerRecord<>("customers", 1, CUSTOMER_JSON);
 
     // 4. send record
     producer.send(record, (metadata, exception) -> {
       // 5. print message partition and offset
       if (exception == null) {
         logger.warn(
-                "Produced message for partition {} and offset {}",
-                metadata.partition(),
-                metadata.offset()
+          "Produced message for partition {} and offset {}",
+          metadata.partition(),
+          metadata.offset()
         );
       } else {
         logger.error("Failed to produce message !", exception);

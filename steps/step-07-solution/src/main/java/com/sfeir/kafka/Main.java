@@ -14,14 +14,15 @@ import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Printed;
 import org.apache.kafka.streams.kstream.Produced;
 import org.apache.kafka.streams.kstream.StreamJoined;
+import org.apache.kafka.streams.kstream.Suppressed;
 
 import java.time.Duration;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 
-import static java.util.Collections.singletonMap;
 import static io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG;
+import static java.util.Collections.singletonMap;
 
 public class Main {
 
@@ -59,37 +60,37 @@ public class Main {
     StreamsBuilder builder = new StreamsBuilder();
 
     KStream<String, Order> orderKStream = builder.stream(
-       "orders",
-       Consumed.with(Serdes.String(), orderSerde)
+      "orders",
+      Consumed.with(Serdes.String(), orderSerde)
     );
 
     KStream<String, CardPayment> cardPaymentKStream = builder.stream(
-       "card_payments",
-       Consumed.with(Serdes.String(), cardPaymentSerde)
+      "card_payments",
+      Consumed.with(Serdes.String(), cardPaymentSerde)
     );
 
     final Printed printed = Printed.toSysOut().withLabel("stdout");
 
     orderKStream
       .join(
-         cardPaymentKStream,
-         (left, right) -> SuspiciousOrder.newBuilder()
-                   .setOrderId(right.getId())
-                   .setCustomerId(left.getCustomerId())
-                   .setPaymentCount(0)
-                   .build(),
-         JoinWindows.of(Duration.ofMinutes(5L)),
-         StreamJoined.with(Serdes.String(), orderSerde, cardPaymentSerde)
+        cardPaymentKStream,
+        (left, right) -> SuspiciousOrder.newBuilder()
+          .setOrderId(right.getId())
+          .setCustomerId(left.getCustomerId())
+          .setPaymentCount(0)
+          .build(),
+        JoinWindows.of(Duration.ofMinutes(5L)),
+        StreamJoined.with(Serdes.String(), orderSerde, cardPaymentSerde)
       )
       .groupByKey(Grouped.with(Serdes.String(), suspiciousOrderSerde))
       .aggregate(
-         SuspiciousOrder::new,
-         (key, value, aggregate) -> SuspiciousOrder.newBuilder()
-                 .setCustomerId(value.getCustomerId())
-                 .setOrderId(value.getOrderId().toString())
-                 .setPaymentCount(aggregate.getPaymentCount() + 1)
-                 .build(),
-         Materialized.with(Serdes.String(), suspiciousOrderSerde)
+        SuspiciousOrder::new,
+        (key, value, aggregate) -> SuspiciousOrder.newBuilder()
+          .setCustomerId(value.getCustomerId())
+          .setOrderId(value.getOrderId().toString())
+          .setPaymentCount(aggregate.getPaymentCount() + 1)
+          .build(),
+        Materialized.with(Serdes.String(), suspiciousOrderSerde)
       )
       .filter((key, value) -> value.getPaymentCount() > 1)
       .toStream()
