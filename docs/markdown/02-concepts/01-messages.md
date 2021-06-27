@@ -15,7 +15,7 @@
 
 * Collection de messages à envoyer
 * Réduit les aller-retours réseaux
-* Permet une compression efficace (`gzip`, `snappy`, `lz4`)
+* Permet une compression efficace (`gzip`, `snappy`, `lz4`, `zstd`)
 
 ##==##
 <!-- .slide: class="with-code" -->

@@ -95,12 +95,16 @@ Les clés doivent être suffisamment diversifiées pour garantir une bonne distr
 
 Kafka assigne automatiquement les partitions aux consommateurs d'un même groupe.
 
-Deux stratégies sont disponibles:
+Quatre stratégies sont disponibles:
 
 * `range`
 * `round-robin`
+* `sticky`
+* `cooperative-sticky`
 
 En général la stratégie `round-robin` permet une assignation équilibrée des partitions.
+
+La stratégie `range` est celle à utiliser si les topics doivent être co-partitionnés.
 
 S'il y a plus de consommateurs que de partitions, ils resteront en attente.
 

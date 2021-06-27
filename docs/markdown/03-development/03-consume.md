@@ -153,22 +153,6 @@ Runtime.getRuntime().addShutdownHook(new Thread(consumer::wakeup));
 L'arrêt correct d'un consommateur déclenchera immédiatement un `rebalance`.
 
 ##==##
-<!-- .slide: -->
-
-# Assignation des partitions
-
-L'assignation des partitions est régie par le paramètre `partition.assignment.strategy`:
-
-- RangeAssignor (co-partitionnement des topics)
-- RoundRobinAssignor (répartition homogène des partitions)
-- StickyAssignor (comme roundrobin avec stickyness)
-- CooperativeStickyAssignor (comme sticy sans pause prolongée des consommateurs)
-
-</br></br>
-
-Le `RangeAssignor` est la valeur par défaut et est **VIVEMENT** recommandée pour les applications KafkaStreams et KSQL.
-
-##==##
 <!-- .slide: class="with-code" -->
 
 # Changement d'offset
