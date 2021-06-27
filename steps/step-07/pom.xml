@@ -18,7 +18,6 @@
    <properties>
       <kafka.version>2.8.0</kafka.version>
       <confluent.version>6.2.0</confluent.version>
-      <avro.version>1.9.0</avro.version>
       <commons-io.version>2.6</commons-io.version>
       <slf4j.version>1.7.30</slf4j.version>
       <logback.version>1.2.3</logback.version>
@@ -41,11 +40,6 @@
       <!-- End of Kafka dependencies -->
 
       <!-- Avro dependencies -->
-      <dependency>
-         <groupId>org.apache.avro</groupId>
-         <artifactId>avro</artifactId>
-         <version>${avro.version}</version>
-      </dependency>
       <dependency>
          <groupId>com.sfeir.kafka</groupId>
          <artifactId>step-04-solution</artifactId>

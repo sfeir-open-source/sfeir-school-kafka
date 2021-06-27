@@ -12,9 +12,8 @@ import org.apache.kafka.streams.kstream.JoinWindows;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Printed;
-import org.apache.kafka.streams.kstream.Produced;
+import org.apache.kafka.streams.kstream.Repartitioned;
 import org.apache.kafka.streams.kstream.StreamJoined;
-import org.apache.kafka.streams.kstream.Suppressed;
 
 import java.time.Duration;
 import java.util.Map;
@@ -95,7 +94,7 @@ public class Main {
       .filter((key, value) -> value.getPaymentCount() > 1)
       .toStream()
       .filter((key, value) -> value != null)
-      .through("suspicious_orders", Produced.with(Serdes.String(), suspiciousOrderSerde))
+      .repartition(Repartitioned.with(Serdes.String(), suspiciousOrderSerde).withName("suspicious_orders"))
       .print(printed);
 
     KafkaStreams streams = new KafkaStreams(builder.build(), properties);
