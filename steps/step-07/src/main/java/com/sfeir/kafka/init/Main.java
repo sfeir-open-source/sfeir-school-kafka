@@ -20,6 +20,7 @@ import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.Clock;
 import java.time.Duration;
 import java.util.Properties;
@@ -127,7 +128,7 @@ public class Main {
   }
 
   private <T> T readJson(String name, Class<T> clazz) throws IOException {
-    final String content = IOUtils.toString(getClass().getResourceAsStream("/data/" + name));
+    final String content = IOUtils.toString(getClass().getResourceAsStream("/data/" + name), StandardCharsets.UTF_8);
     return om.readValue(content, clazz);
   }
 

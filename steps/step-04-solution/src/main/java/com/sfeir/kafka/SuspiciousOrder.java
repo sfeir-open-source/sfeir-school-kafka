@@ -71,9 +71,9 @@ public class SuspiciousOrder extends org.apache.avro.specific.SpecificRecordBase
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.CharSequence orderId;
-  @Deprecated public int customerId;
-  @Deprecated public int paymentCount;
+   private java.lang.CharSequence orderId;
+   private int customerId;
+   private int paymentCount;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -102,7 +102,7 @@ public class SuspiciousOrder extends org.apache.avro.specific.SpecificRecordBase
     case 0: return orderId;
     case 1: return customerId;
     case 2: return paymentCount;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -113,7 +113,7 @@ public class SuspiciousOrder extends org.apache.avro.specific.SpecificRecordBase
     case 0: orderId = (java.lang.CharSequence)value$; break;
     case 1: customerId = (java.lang.Integer)value$; break;
     case 2: paymentCount = (java.lang.Integer)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -205,6 +205,7 @@ public class SuspiciousOrder extends org.apache.avro.specific.SpecificRecordBase
   /**
    * RecordBuilder for SuspiciousOrder instances.
    */
+  @org.apache.avro.specific.AvroGenerated
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SuspiciousOrder>
     implements org.apache.avro.data.RecordBuilder<SuspiciousOrder> {
 

@@ -8,22 +8,15 @@
    <artifactId>step-04-solution</artifactId>
    <version>1.0.0-SNAPSHOT</version>
 
-   <repositories>
-      <repository>
-         <id>confluent</id>
-         <url>http://packages.confluent.io/maven</url>
-      </repository>
-   </repositories>
-
    <pluginRepositories>
       <pluginRepository>
          <id>confluent</id>
-         <url>http://packages.confluent.io/maven</url>
+         <url>https://packages.confluent.io/maven</url>
       </pluginRepository>
    </pluginRepositories>
 
    <properties>
-      <avro.version>1.9.0</avro.version>
+      <avro.version>1.10.2</avro.version>
       <confluent.version>6.2.0</confluent.version>
       <java.version>1.8</java.version>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

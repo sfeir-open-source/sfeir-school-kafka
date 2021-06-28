@@ -71,10 +71,10 @@ public class Order extends org.apache.avro.specific.SpecificRecordBase implement
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.CharSequence id;
-  @Deprecated public int customerId;
-  @Deprecated public long orderTimestamp;
-  @Deprecated public double totalPrice;
+   private java.lang.CharSequence id;
+   private int customerId;
+   private long orderTimestamp;
+   private double totalPrice;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -106,7 +106,7 @@ public class Order extends org.apache.avro.specific.SpecificRecordBase implement
     case 1: return customerId;
     case 2: return orderTimestamp;
     case 3: return totalPrice;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -118,7 +118,7 @@ public class Order extends org.apache.avro.specific.SpecificRecordBase implement
     case 1: customerId = (java.lang.Integer)value$; break;
     case 2: orderTimestamp = (java.lang.Long)value$; break;
     case 3: totalPrice = (java.lang.Double)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -227,6 +227,7 @@ public class Order extends org.apache.avro.specific.SpecificRecordBase implement
   /**
    * RecordBuilder for Order instances.
    */
+  @org.apache.avro.specific.AvroGenerated
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Order>
     implements org.apache.avro.data.RecordBuilder<Order> {
 

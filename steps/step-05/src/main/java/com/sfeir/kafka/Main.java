@@ -32,7 +32,7 @@ public class Main {
   private void produce() {
     Properties properties = new Properties();
 
-    properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "kafka:29092");
+    properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
     properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
     // add more producer configuration
 
@@ -42,7 +42,7 @@ public class Main {
   private void consume() {
     Properties properties = new Properties();
 
-    properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "kafka:29092");
+    properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
     properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class);
     // add more consumer configuration
 

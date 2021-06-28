@@ -71,8 +71,8 @@ public class CardPayment extends org.apache.avro.specific.SpecificRecordBase imp
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.CharSequence id;
-  @Deprecated public double paidPrice;
+   private java.lang.CharSequence id;
+   private double paidPrice;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -98,7 +98,7 @@ public class CardPayment extends org.apache.avro.specific.SpecificRecordBase imp
     switch (field$) {
     case 0: return id;
     case 1: return paidPrice;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -108,7 +108,7 @@ public class CardPayment extends org.apache.avro.specific.SpecificRecordBase imp
     switch (field$) {
     case 0: id = (java.lang.CharSequence)value$; break;
     case 1: paidPrice = (java.lang.Double)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -183,6 +183,7 @@ public class CardPayment extends org.apache.avro.specific.SpecificRecordBase imp
   /**
    * RecordBuilder for CardPayment instances.
    */
+  @org.apache.avro.specific.AvroGenerated
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<CardPayment>
     implements org.apache.avro.data.RecordBuilder<CardPayment> {
 

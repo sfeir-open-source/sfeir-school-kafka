@@ -71,9 +71,9 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
     return DECODER.decode(b);
   }
 
-  @Deprecated public int id;
-  @Deprecated public java.lang.CharSequence email;
-  @Deprecated public com.sfeir.kafka.Gender gender;
+   private int id;
+   private java.lang.CharSequence email;
+   private com.sfeir.kafka.Gender gender;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -102,7 +102,7 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
     case 0: return id;
     case 1: return email;
     case 2: return gender;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -113,7 +113,7 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
     case 0: id = (java.lang.Integer)value$; break;
     case 1: email = (java.lang.CharSequence)value$; break;
     case 2: gender = (com.sfeir.kafka.Gender)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -205,6 +205,7 @@ public class Customer extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * RecordBuilder for Customer instances.
    */
+  @org.apache.avro.specific.AvroGenerated
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Customer>
     implements org.apache.avro.data.RecordBuilder<Customer> {
 
