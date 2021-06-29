@@ -93,7 +93,6 @@ public class Main {
       )
       .filter((key, value) -> value.getPaymentCount() > 1)
       .toStream()
-      .filter((key, value) -> value != null)
       .repartition(Repartitioned.with(Serdes.String(), suspiciousOrderSerde).withName("suspicious_orders"))
       .print(printed);
 
