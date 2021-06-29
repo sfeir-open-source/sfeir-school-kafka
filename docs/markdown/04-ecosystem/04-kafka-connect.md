@@ -102,7 +102,7 @@ Une liste exhaustive de connecteurs supportés peut être trouvée sur le [Hub C
 		"connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
 		"connection.url": "http://localhost:9200",
 		"type.name": "_doc",
-		"topics": ["customers", "orders"],
+		"topics": "customers,orders",
 		"tasks.max": 1
 	}
 }
