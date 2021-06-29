@@ -68,7 +68,7 @@ public class Main {
       Consumed.with(Serdes.String(), cardPaymentSerde)
     );
 
-    final Printed printed = Printed.toSysOut().withLabel("suspicious");
+    final Printed<String, SuspiciousOrder> printed = Printed.<String, SuspiciousOrder>toSysOut().withLabel("suspicious");
 
     orderKStream
       .join(
